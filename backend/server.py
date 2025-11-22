@@ -133,7 +133,7 @@ console = Console()
 
 # mongo_url = 'mongodb://posDBUser:posDBPassword@103.239.43.246:27017/?authSource=admin' #local docker
 #mongo_url = 'mongodb://posDBUser:posDBPassword@tcm-pos-posdb-2i3j8w:27017/?authSource=admin' #dokploy
-MONGO_URL='mongodb://localhost:27017'
+mongo_url='mongodb://localhost:27017'
 
 db_name = 'stocklotDB'
 
