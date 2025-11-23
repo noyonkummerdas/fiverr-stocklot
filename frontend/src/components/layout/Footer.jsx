@@ -12,53 +12,53 @@ export default function Footer() {
   });
 
   // Load social media settings from admin configuration
-  useEffect(() => {
-    const loadSocialSettings = async () => {
-      try {
-        const backendUrl = process.env.REACT_APP_BACKEND_URL || '';
-        const response = await fetch(`${backendUrl}/api/platform/config`);
+  // useEffect(() => {
+  //   const loadSocialSettings = async () => {
+  //     try {
+  //       const backendUrl = process.env.REACT_APP_BACKEND_URL || '';
+  //       const response = await fetch(`${backendUrl}/api/platform/config`);
         
-        // Check if response is OK and content-type is JSON
-        const contentType = response.headers.get('content-type');
-        const isJson = contentType && contentType.includes('application/json');
+  //       // Check if response is OK and content-type is JSON
+  //       const contentType = response.headers.get('content-type');
+  //       const isJson = contentType && contentType.includes('application/json');
         
-        if (response.ok && isJson) {
-          const config = await response.json();
-          const settings = config.settings || {};
-          const socialMedia = settings.social_media || {};
-          console.log('Loaded social settings:', socialMedia);
-          setSocialSettings({
-            facebookUrl: socialMedia.facebook || socialMedia.facebook_url || 'https://facebook.com/stocklot',
-            twitterUrl: socialMedia.twitter || socialMedia.x_url || 'https://x.com/stocklotmarket',
-            instagramUrl: socialMedia.instagram || socialMedia.instagram_url || 'https://instagram.com/stocklot',
-            youtubeUrl: socialMedia.youtube || socialMedia.youtube_url || 'https://www.youtube.com/@stocklotmarket',
-            linkedinUrl: socialMedia.linkedin || socialMedia.linkedin_url || 'https://www.linkedin.com/company/stocklotmarket'
-          });
-        } else {
-          // Set fallback social media URLs if endpoint doesn't exist or returns non-JSON
-          setSocialSettings({
-            facebookUrl: 'https://facebook.com/stocklot',
-            twitterUrl: 'https://x.com/stocklotmarket',
-            instagramUrl: 'https://instagram.com/stocklot',
-            youtubeUrl: 'https://www.youtube.com/@stocklotmarket',
-            linkedinUrl: 'https://www.linkedin.com/company/stocklotmarket'
-          });
-        }
-      } catch (error) {
-        console.error('Failed to load social settings:', error);
-        // Set fallback social media URLs on error
-        setSocialSettings({
-          facebookUrl: 'https://facebook.com/stocklot',
-          twitterUrl: 'https://x.com/stocklotmarket',
-          instagramUrl: 'https://instagram.com/stocklot',
-          youtubeUrl: 'https://www.youtube.com/@stocklotmarket',
-          linkedinUrl: 'https://www.linkedin.com/company/stocklotmarket'
-        });
-      }
-    };
+  //       if (response.ok && isJson) {
+  //         const config = await response.json();
+  //         const settings = config.settings || {};
+  //         const socialMedia = settings.social_media || {};
+  //         console.log('Loaded social settings:', socialMedia);
+  //         setSocialSettings({
+  //           facebookUrl: socialMedia.facebook || socialMedia.facebook_url || 'https://facebook.com/stocklot',
+  //           twitterUrl: socialMedia.twitter || socialMedia.x_url || 'https://x.com/stocklotmarket',
+  //           instagramUrl: socialMedia.instagram || socialMedia.instagram_url || 'https://instagram.com/stocklot',
+  //           youtubeUrl: socialMedia.youtube || socialMedia.youtube_url || 'https://www.youtube.com/@stocklotmarket',
+  //           linkedinUrl: socialMedia.linkedin || socialMedia.linkedin_url || 'https://www.linkedin.com/company/stocklotmarket'
+  //         });
+  //       } else {
+  //         // Set fallback social media URLs if endpoint doesn't exist or returns non-JSON
+  //         setSocialSettings({
+  //           facebookUrl: 'https://facebook.com/stocklot',
+  //           twitterUrl: 'https://x.com/stocklotmarket',
+  //           instagramUrl: 'https://instagram.com/stocklot',
+  //           youtubeUrl: 'https://www.youtube.com/@stocklotmarket',
+  //           linkedinUrl: 'https://www.linkedin.com/company/stocklotmarket'
+  //         });
+  //       }
+  //     } catch (error) {
+  //       console.error('Failed to load social settings:', error);
+  //       // Set fallback social media URLs on error
+  //       setSocialSettings({
+  //         facebookUrl: 'https://facebook.com/stocklot',
+  //         twitterUrl: 'https://x.com/stocklotmarket',
+  //         instagramUrl: 'https://instagram.com/stocklot',
+  //         youtubeUrl: 'https://www.youtube.com/@stocklotmarket',
+  //         linkedinUrl: 'https://www.linkedin.com/company/stocklotmarket'
+  //       });
+  //     }
+  //   };
     
-    loadSocialSettings();
-  }, []);
+  //   loadSocialSettings();
+  // }, []);
 
   return (
     <footer className="bg-emerald-900 p-6 pt-8 text-white">

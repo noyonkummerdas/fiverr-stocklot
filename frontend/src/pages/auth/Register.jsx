@@ -7,7 +7,7 @@ import { useRegisterMutation } from '../../store/api/user.api';
 
 
 function Register() {
-  const [registerUser] = useRegisterMutation();
+  const [registerUser, {isLoading}] = useRegisterMutation();
 
 
   const [formData, setFormData] = useState({
@@ -17,9 +17,10 @@ function Register() {
     phone: '',
     role: 'buyer'
   });
+  console.log("Form Data:", formData);
 
   
-  const [error, setError] = useState('');
+  const [error: apiError, setError] = useState('');
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
